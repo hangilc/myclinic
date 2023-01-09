@@ -1,0 +1,22 @@
+version: '3'
+services:
+  mysql:
+    image: "hangilc/myclinic-mysql-demo"
+    ports: 
+      - "23306:3306"
+  files:
+    image: "hangilc/myclinic-files-demo"
+    volumes:
+      - /myclinic-files
+  server:
+    image: "hangilc/myclinic-scala"
+    ports:
+      - "8000:8080"
+    environment:
+      - MYCLINIC_DATA_DIR=/myclinic-files
+      - MYCLINIC_DATA=/myclinic-files
+      - MYCLINIC_PORTAL_TMP_DIR=/myclinic-files/portal-tmp
+      - MYCLINIC_VITE_DIR=/vite
+      - MYCLINIC_CONFIG_DIR=/myclinic-files/config
+    volumes_from:
+      - files
