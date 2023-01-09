@@ -1,3 +1,0 @@
-[submodule "myclinic-mysql"]
-	path = myclinic-mysql
-	url = git@github.com:hangilc/myclinic-mysql.git
