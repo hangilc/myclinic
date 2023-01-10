@@ -2,6 +2,8 @@ version: '3'
 services:
   mysql:
     image: "hangilc/myclinic-mysql-demo"
+    ports:
+      - "23306:3306"
   files:
     image: "hangilc/myclinic-files-demo"
   vite:
