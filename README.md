@@ -12,7 +12,7 @@ MyClinic は、個人開業医のために作成された、オープンソー�
 
 docker compose を使って MyClinic のデモを使用することができます。
 
-以下の内容で docker-compose.yml を作成し、`docker compose up -d` を実行し、（MySQL が実行されるまで数秒待って）`http://127.0.0.1:8080/vite/reception/` にアクセスすると、「受付」サイトが開きます。そこで、患者の新規登録ができます。そのあと、`http://127.0.0.1:8080/vite/practice/` にアクセスし、診療を開始できます。
+以下の内容で docker-compose.yml を作成し、`docker compose up -d` を実行し、（MySQL が実行されるまで数秒待って）`http://127.0.0.1:8080/vite/reception/` にアクセスすると、「受付」サイトが開きます。そこで、患者の新規登録ができます。そのあと、`http://127.0.0.1:8080/vite/practice/` にアクセスし、診療を開始できます。デモは、`docker compose down` で終了できます。
 
 
 ```
