@@ -1,15 +1,15 @@
 version: '3'
 services:
   mysql:
-    image: "hangilc/myclinic-mysql-demo"
+    image: "hangilc/myclinic-mysql-demo:1.0.0"
     ports:
       - "23306:3306"
   files:
-    image: "hangilc/myclinic-files-demo"
+    image: "hangilc/myclinic-files-demo:1.0.0"
   vite:
-    image: "hangilc/myclinic-vite"
+    image: "hangilc/myclinic-vite:1.0.0"
   server:
-    image: "hangilc/myclinic-scala"
+    image: "hangilc/myclinic-scala:1.0.0"
     ports:
       - "8080:8080"
     environment:
@@ -35,6 +35,3 @@ services:
       - vite
     depends_on: 
       - mysql
-  # test:
-  #   image: debian
-  #   command: /bin/bash -c "sleep 1000000"
