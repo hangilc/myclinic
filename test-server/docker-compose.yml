@@ -1,0 +1,32 @@
+version: '3'
+services:
+  mysql:
+    image: "hangilc/myclinic-mysql-demo:1.0.0"
+  files:
+    image: "hangilc/myclinic-files-demo:1.0.0"
+  server:
+    image: "hangilc/myclinic-scala:1.0.0"
+    ports:
+      - "38080:8080"
+    environment:
+      - MYCLINIC_DATA_DIR=/myclinic-files
+      - MYCLINIC_DATA=/myclinic-files
+      - MYCLINIC_PORTAL_TMP_DIR=/myclinic-files/portal-tmp
+      - MYCLINIC_VITE_DIR=/vite
+      - MYCLINIC_CONFIG_DIR=/myclinic-files/config
+      - MYCLINIC_DB_HOST=mysql
+      - MYCLINIC_DB_PORT=3306
+      - MYCLINIC_DB_USER=myuser
+      - MYCLINIC_DB_PASS=mypass
+      - MYCLINIC_PAPER_SCAN_DIR=/myclinic-files/paper-scan
+      - MYCLINIC_SHOHOUSEN_DIR=/myclinic-files/shohousen
+      - MYCLINIC_CONFIG=/myclinic-files/config
+      - MYCLINIC_FONT_DIR=/myclinic-files/fonts
+      - MYCLINIC_SHUJII_DIR=/myclinic-files/shujii
+      - MYCLINIC_PHARMACY_LIST=/myclinic-files/pharmacies.txt
+      - MYCLINIC_REFER_DIR=/myclinic-files/refer
+      - MYCLINIC_RCPT_DIR=/myclinic-files/rcpt
+    volumes_from:
+      - files
+    depends_on: 
+      - mysql
